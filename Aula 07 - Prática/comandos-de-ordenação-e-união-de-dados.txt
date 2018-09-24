@@ -1,0 +1,62 @@
+-- Relizando uma simples união de valores --
+Select 1
+Union -- União de dados
+Selet 2
+Union
+Select 3, 'Jeff'
+go
+
+-- Realizando union com valores nulos --
+Select 1
+Union
+Select Null
+Union
+Select 3
+Union
+Select 4
+go
+
+--Realizando Union com valores repetidos ou duplicados --
+Select 1 As Coluna1, 1 As Conluna 2
+Union All --União todos os dados inclusive repetidos
+Select 2,2
+Unon All
+Select 3,3
+Union
+Select 3,3
+Union All
+Select 2,2
+Order By Coluna1
+go
+
+-- Realizando uma ordenação simples de dados --
+Select 1 As Coluna1, 1 As Coluna2, 'Jeff' As Nome
+Union All --União todos os dados unclusive repetidos
+Select 2,2 'Willian'
+Union All
+Select 3,3 'Carvalho'
+Union All
+Select 3,3 'De Carvalho'
+Union All
+Select 4,4 'Gerso'
+Order By Nome Desc
+Go
+
+-- Realizando uma ordenação a partir da terceira linha, limitando o retorno --
+Select 1 As Coluna1, 1 As Coluna2, 'Jeff' As Nome
+Union All --União todos os dados unclusive repetidos
+Select 2,2 'Willian'
+Union All
+Select 3,3 'Carvalho'
+Union All
+Select 3,3 'De Carvalho'
+Union All
+Select 4,4 'Gerso'
+Order By Nome Desc
+	OFFSET 2 ROWS -- Estabelece o conjunto de linhas ou posição inicial
+	FETCH NEXT 2 ROWS ONLY; -- Determina a quantidade de linhas
+go
+Go
+go
+
+
